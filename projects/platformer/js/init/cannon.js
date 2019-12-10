@@ -33,6 +33,8 @@
         createCannon("bottom", 600, 15000);
         createCannon("bottom", 775, 19000);
         createCannon("right", 210, 25000);
+        createCannon("right", (Math.floor(Math.random() * 900)), 35000);
+        createCannon("left", (Math.floor(Math.random() * 900)), 35000);
         
         // ALL YOUR CODE GOES ABOVE HERE ///////////////////////////////////////
         ////////////////////////////////////////////////////////////////////////
