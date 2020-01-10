@@ -1,4 +1,4 @@
-<!DOCTYPE html>
++<!DOCTYPE html>
 <html>
 <head>
 	<meta charset="utf-8">
@@ -16,9 +16,12 @@
 			top: 100px;
 			left: 0px;  /* <--- Change me! */
 		}
+		body {
+ 			background-image: url("https://media.giphy.com/media/rYEAkYihZsyWs/giphy.gif");
+ 			background-color: #cccccc;
+		}
 	</style>
 	<!-- 	<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script> -->
-	<img src="https://www.google.com/url?sa=i&source=images&cd=&ved=2ahUKEwipi5qpyPnmAhXSmuAKHVhDBn4QjRx6BAgBEAQ&url=https%3A%2F%2Fgiphy.com%2Fexplore%2Fbob-ross&psig=AOvVaw2p5TYeNJfXcCj84hkAR8CX&ust=1578763938695168"></img>
 </head>
 <body class="board">
 	<!-- HTML for the box -->
@@ -47,7 +50,6 @@
 			function moveBoxTo(newPositionX) {
 				box.css("left", newPositionX);
 			}
-
 			// changes the text displayed on the Box
 			function changeBoxText(newText) {
 				box.text(newText);
@@ -61,9 +63,13 @@
 			var positionX = 0;
 			var points = 0;
 			var speed = 10;
-			var positionY;
-			var directionY;
+			var positionY = 0;
+			var directionY = 10;
 			var boardHeight = jQuery(window).height();
+			//moves the box to a new position on the screen along the Y-Axis
+				function moveBoxToY(PositionY) {
+					box.css('top', PositionY);
+				}
 			/* 
 			This Function will be called 20 times/second. Each time it is called,
 			it should move the Box to a new location. If the box drifts off the screen
@@ -71,12 +77,20 @@
 			*/
 			function update() {
 				positionX = positionX + speed;
+				positionY = positionY + directionY;
+				moveBoxToY(positionY);
 				moveBoxTo(positionX);
 				if (positionX > boardWidth){
 					speed = speed * -1;
 				}
 				if (positionX < 0){
 					speed = speed * -1;
+				}
+				if (positionY > boardHeight){
+					directionY = directionY * -1;
+				}
+				if (positionY < 0){
+					directionY = directionY * -1;
 				}
 			};
 
