@@ -55,15 +55,15 @@ var background = function (window) {
                 }
             // TODO: 5 - Add buildings!     Q: This is before TODO 4 for a reason! Why?
             for(var i=0;i<7;++i) {
-                var buildingHeight = 300;
-                var building = draw.bitmap('img/perry.png');
-                    building.x = 200*i;
+                var buildingHeight = 175;
+                var building = draw.bitmap('img/background.jpg');
+                    building.x = 960*i;
                     building.y = groundY-buildingHeight;
                     background.addChild(building);
                     buildings.push(building);
             }
             // TODO 4: Part 1 - Add a tree
-            tree = draw.bitmap('img/perry.png');
+            tree = draw.bitmap('img/tree.png');
             tree.x = 180;
             tree.y = 1/4 * canvasHeight;
             background.addChild(tree);
